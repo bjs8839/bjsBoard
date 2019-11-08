@@ -15,9 +15,51 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <script src="https://kit.fontawesome.com/efb21057d1.js" crossorigin="anonymous"></script>
   
-<title>글쓰기 화면</title>
+<title>글쓰기 화면, 닉네임, 비밀번호, 글제목, 글내용</title>
 </head>
 <body>
-ㅇㅇ
+	<div class="container">
+		<h2>글쓰기</h2>
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="nickname">닉네임:</label>
+				<div class="col-sm-4">
+					<input type="text" class="form-control" id="nickname" placeholder="닉네임을 입력하세요" name="nickname">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="password">비밀번호:</label>
+				<div class="col-sm-4">
+					<input type="text" class="form-control" id="password" placeholder="비밀번호를 입력하세요" name="password">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="title">제목:</label>
+				<div class="col-sm-4">
+					<input type="text" class="form-control" id="title" placeholder="제목을 입력하세요" name="title">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<div class="checkbox">
+						<label style="font-weight:700;"><input type="checkbox" name="remember">비밀번호 저장</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="content">글내용:</label>
+				<div class="col-sm-10"></div>
+				<div class="col-sm-offset-2 col-sm-10">
+					<textarea class="form-control" rows="20" cols="20" placeholder="글 내용을 작성해주세요" id="content" name="content"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-default" style="font-weight:700;">글 게시하기</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	
 </body>
 </html>

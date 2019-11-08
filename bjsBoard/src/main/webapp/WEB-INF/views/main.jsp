@@ -14,7 +14,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <script src="https://kit.fontawesome.com/efb21057d1.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="resources/main.css?ver=4">
+  <link rel="stylesheet" href="resources/main.css?ver=5">
   
 <title>bjsBoard Main</title>
 </head>

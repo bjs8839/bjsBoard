@@ -23,6 +23,12 @@ public class bjsBoardController {
 		model.addAttribute("boardList",result);
 		return "main";
 	}
+	
+	@RequestMapping(value="/boardWriteView", method=RequestMethod.GET)
+	public String boardWriteView() {
+		
+		return "boardWriteView";
+	}
 //	@RequestMapping(value = "/test", method = RequestMethod.GET)
 //	public String test(Model model) {
 //		List<Map<String,Object>> result;

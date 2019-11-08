@@ -7,5 +7,6 @@ i.boardWriteBtn:hover{
 	cursor: pointer;
 }
 i.boardWriteBtn{
-	
+	position: absolute;
+	right:10%;
 }
