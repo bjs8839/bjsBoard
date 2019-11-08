@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+ul.boardList{
+	list-style:none;
+}
+i.boardWriteBtn:hover{
+	cursor: pointer;
+}
+i.boardWriteBtn{
+	
+}
