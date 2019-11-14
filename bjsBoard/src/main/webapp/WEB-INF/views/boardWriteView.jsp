@@ -20,7 +20,7 @@
 <body>
 	<div class="container">
 		<h2>글쓰기</h2>
-		<form class="form-horizontal">
+		<form class="form-horizontal" action="/boardWrite">
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="nickname">닉네임:</label>
 				<div class="col-sm-4">
@@ -55,7 +55,12 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
-					<button type="submit" class="btn btn-default" style="font-weight:700;">글 게시하기</button>
+					<button type="submit" class="btn btn-default" id="writeBtn" style="font-weight:700;">글 게시하기</button>
+<!-- 					<script> -->
+<!-- // 						$('#writeBtn').click(function(){ -->
+<!-- // 							location.href="boardWrite?nickname="+$('#nickname').val()+"&password="+$('#password').val()+"&"" -->
+<!-- // 						}) -->
+<!-- 					</script> -->
 				</div>
 			</div>
 		</form>

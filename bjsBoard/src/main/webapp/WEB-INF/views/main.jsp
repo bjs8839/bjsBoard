@@ -33,10 +33,11 @@
 			</thead>
 			<tbody>
 				<c:forEach items="${boardList}" var="bl">
+					<input type="hidden" value="${bl.BOARDNUM}">
 					<tr>
 						<c:set var="WRITEDATE" value="${bl.WRITE_DATE}"/>
 						<td>${bl.BOARDNUM}</td>
-						<td>${bl.TITLE}</td>
+						<td><a href="boardDetailView?boardNum=${bl.BOARDNUM}">${bl.TITLE}</a></td>
 						<td>${bl.WRITER}</td>
 						<td>${fn:substring(WRITEDATE,0,4)}년 ${fn:substring(WRITEDATE,5,7)}월 ${fn:substring(WRITEDATE,8,10)}일 ${fn:substring(WRITEDATE,11,13)}시  ${fn:substring(WRITEDATE,14,16)}분</td>
 						<td>${bl.READ_COUNT}</td>

@@ -17,7 +17,22 @@ public class bjsBoardService {
 	public List<Map<String,Object>> getBoardAllList(){
 		List<Map<String,Object>> result = new ArrayList<Map<String,Object>>();
 		result=dao.getAllBoardList();
-		
 		return result;
 	}
+	public int boardWrite(Map<String, Object> board) {
+		return dao.boardWrite(board);
+	}
+	
+	public Map<String, Object> getBoardByBoardNum(int boardNum){
+		return dao.getBoardByBoardNum(boardNum);
+	}
+	
+	public int boardModify(Map<String, Object> board){
+		return dao.boardModify(board);
+	}
+	
+	public int boardDelete(int boardNum){
+		return dao.boardDelete(boardNum);
+	}
+	
 }

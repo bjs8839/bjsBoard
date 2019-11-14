@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bjsboard.boardapp.dao.bjsBoardDao">
+	
 	<select id="getAllBoardList" resultType="map">
 		select * from board
 	</select>
+	
+	<insert id="boardWrite" parameterType="map" >
+		insert into board (BOARDNUM, TITLE, WRITER, WRITE_DATE, READ_COUNT, RECOMMAND, CONTENT, PASSWORD)
+			values (boardNum_seq.nextval, #{title}, #{nickname}, sysdate, 0, 0, #{content}, #{password})
+	</insert>
+	
+	<select id="getBoardByBoardNum" resultType="map">
+		select * from board where BOARDNUM = #{boardNum} 
+	</select>
+	
+	<update id="boardModify" parameterType="map">
+		update board
+			set TITLE = #{title},
+				WRITER = #{nickname},
+				CONTENT = #{content},
+				PASSWORD = #{password}
+			where BOARDNUM like #{boardNum}
+	</update>
+	
+	<delete id="boardDelete" parameterType="int">
+		delete from board where BOARDNUM like #{boardNum}
+	</delete>
 </mapper>
