@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+.panel.panel-default.content{
+	margin-top:30px;
+}
+.panel-body.content{
+	width:1000px;
+	height:400px;
+}
