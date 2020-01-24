@@ -14,6 +14,16 @@ public class bjsBoardService {
 	@Autowired
 	private bjsBoardDao dao;
 	
+	public List<Map<String,Object>> getBoardList(int page){
+		List<Map<String,Object>> result = new ArrayList<Map<String,Object>>();
+		int startBoardNum= ((page-1)*10)+1;
+		int endBoardNum=page*10;
+		System.out.println("startBoardNum: "+startBoardNum);
+		System.out.println("endBoardNum: "+endBoardNum);
+		result=dao.getBoardList(startBoardNum, endBoardNum);
+		return result;
+	}
+	
 	public List<Map<String,Object>> getBoardAllList(){
 		List<Map<String,Object>> result = new ArrayList<Map<String,Object>>();
 		result=dao.getAllBoardList();

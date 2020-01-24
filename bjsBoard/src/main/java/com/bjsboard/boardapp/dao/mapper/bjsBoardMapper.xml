@@ -1,30 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bjsboard.boardapp.dao.bjsBoardDao">
-	
+
 	<select id="getAllBoardList" resultType="map">
 		select * from board
+		order by WRITE_DATE desc
 	</select>
-	
-	<insert id="boardWrite" parameterType="map" >
-		insert into board (BOARDNUM, TITLE, WRITER, WRITE_DATE, READ_COUNT, RECOMMAND, CONTENT, PASSWORD)
-			values (boardNum_seq.nextval, #{title}, #{nickname}, sysdate, 0, 0, #{content}, #{password})
+
+	<select id="getBoardList" resultType="map">
+		<![CDATA[ 
+		select rNum, X.BOARDNUM, X.TITLE, X.WRITER, X.WRITE_DATE, X.READ_COUNT, X.RECOMMAND,X.CONTENT,X.PASSWORD
+		from(
+			select ROWNUM as rNum, A.BOARDNUM, A.TITLE,	A.WRITER, A.WRITE_DATE,	A.READ_COUNT, A.RECOMMAND, A.CONTENT, A.PASSWORD
+			from (
+				select *
+				from board
+				order by WRITE_DATE desc) A
+			where ROWNUM <=#{endBoardNum}) X
+		where X.rNum >=#{startBoardNum} ]]>
+	</select>
+
+	<insert id="boardWrite" parameterType="map">
+		insert into board
+		(BOARDNUM, TITLE, WRITER, WRITE_DATE, READ_COUNT, RECOMMAND, CONTENT,
+		PASSWORD)
+		values (boardNum_seq.nextval, #{title}, #{nickname}, sysdate,
+		0, 0,
+		#{content}, #{password})
 	</insert>
-	
+
 	<select id="getBoardByBoardNum" resultType="map">
-		select * from board where BOARDNUM = #{boardNum} 
+		select * from board
+		where BOARDNUM = #{boardNum}
 	</select>
-	
+
 	<update id="boardModify" parameterType="map">
 		update board
-			set TITLE = #{title},
-				WRITER = #{nickname},
-				CONTENT = #{content},
-				PASSWORD = #{password}
-			where BOARDNUM like #{boardNum}
+		set TITLE =
+		#{title},
+		WRITER = #{nickname},
+		CONTENT = #{content},
+		PASSWORD =
+		#{password}
+		where BOARDNUM like #{boardNum}
 	</update>
-	
+
 	<delete id="boardDelete" parameterType="int">
-		delete from board where BOARDNUM like #{boardNum}
+		delete from board where
+		BOARDNUM like #{boardNum}
 	</delete>
 </mapper>

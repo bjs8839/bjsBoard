@@ -22,6 +22,7 @@
 	<div class="container">
 		<h2>글 상세보기</h2>
 		<input type="hidden" id="boardNum" value="${boardDetail.BOARDNUM}">
+		<input type="hidden" id="boardPw" value="${boardDetail.PASSWORD}">
 		<table>	
 			<tr>
 				<th>글제목 : ${boardDetail.TITLE} </th>
@@ -39,22 +40,85 @@
 		</div>
 		<div class="row">
 			<div class="col-sm-offset-9 col-sm-1"><button class="btn btn-default" id="listBtn">목록</button></div>
-			<div class="col-sm-1"><button class="btn btn-default" id="modifyBtn">수정</button></div>
-			<div class="col-sm-1"><button class="btn btn-default" id="deleteBtn">삭제</button></div>
+			<div class="col-sm-1"><button type="button" class="btn btn-default" data-toggle="modal" data-target="#modifyModal">수정</button></div>
+			<div class="col-sm-1"><button type="button" class="btn btn-default" data-toggle="modal" data-target="#deleteModal">삭제</button></div>
 		</div>
 		<script>
 			$(function(){
 				$('#listBtn').click(function(){
 					location.href="/main"
 				})
-				$('#modifyBtn').click(function(){
-					location.href="/boardModifyView?boardNum="+$('#boardNum').val()
+				$('#modifyVerifyBtn').click(function(){
+					var i = $('#boardPw').val()
+					var j = $('#modifyPw').val()
+					$('#modifyPw').val("")
+					if(i==j){
+						alert("글수정화면으로 이동합니다.")
+						location.href="/boardModifyView?boardNum="+$('#boardNum').val()
+					}else{
+						alert("비밀번호가 맞지 않습니다.")
+					}
 				})
-				$('#deleteBtn').click(function(){
-					location.href="/boardDelete?boardNum="+$('#boardNum').val()
+				$('#deleteVerifyBtn').click(function(){
+					var i = $('#boardPw').val()
+					var j = $('#deletePw').val()
+					$('#deletePw').val("")
+					if(i==j){
+						alert("글을 삭제합니다.")
+						location.href="/boardDelete?boardNum="+$('#boardNum').val()
+					}else{
+						alert("비밀번호가 맞지 않습니다.")
+					}
+					
 				})
 			})
 		</script>
 	</div>
+	
+	<!-- Trigger the modal with a button -->
+
+
+<!-- Modal -->
+<div id="modifyModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+	
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">글수정하기</h4>
+      </div>
+      <div class="modal-body">
+        <p>글 작성시 입력한 비밀번호를 입력해주세요.</p>
+        <input type="text" id="modifyPw" placeholder="비밀번호를 입력해주세요..">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="modifyVerifyBtn">확인</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Modal -->
+<div id="deleteModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+	
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">글삭제하기</h4>
+      </div>
+      <div class="modal-body">
+        <p>글 작성시 입력한 비밀번호를 입력해주세요.</p>
+        <input type="text" id="deletePw" placeholder="비밀번호를 입력해주세요..">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="deleteVerifyBtn">확인</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 </body>
 </html>
