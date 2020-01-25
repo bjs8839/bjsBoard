@@ -53,6 +53,12 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		<div id="pageBtn">
+			<c:forEach begin="${pageResult.startPageNum}" end="${pageResult.endPageNum }" var="pageNum">
+				<a href="main?page=${pageNum}">${pageNum}</a>
+			</c:forEach>
+		</div>
+		
 		<i class="fas fa-pen-square fa-2x boardWriteBtn" id="boardWriteBtn"></i>
 		<script>
 			$("#boardWriteBtn").click(function() {

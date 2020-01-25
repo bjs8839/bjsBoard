@@ -41,8 +41,13 @@ public class bjsBoardController {
 		
 		List<Map<String, Object>> result;
 		result = service.getBoardList(page);
-		System.out.println(result);
+//		System.out.println(result);
 		model.addAttribute("boardList", result);
+		
+		Map<String, Object> pageResult = service.getPageNum(page);
+		System.out.println(pageResult);
+		model.addAttribute("pageResult", pageResult);
+		
 		return "main";
 	}
 
