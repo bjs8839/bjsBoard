@@ -18,7 +18,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script src="https://kit.fontawesome.com/efb21057d1.js"
 	crossorigin="anonymous"></script>
-<link rel="stylesheet" href="resources/main.css?ver=5">
+<link rel="stylesheet" href="resources/main.css?ver=6">
 
 <title>bjsBoard Main</title>
 </head>
@@ -53,13 +53,26 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<div id="pageBtn">
+		<div class="pageNumBtn">
+			
+			<c:if test="${pageResult.page!=1}">
+				<a style="margin-left:7px; color:black;" href="main?page=1">처음</a>
+			</c:if>
+			<c:if test="${!(pageResult.page>=1&&pageResult.page<=10)}">
+				<a style="margin-left:7px; color:black;" href="main?page=${pageResult.startPageNum-1}">이전</a>
+			</c:if>
 			<c:forEach begin="${pageResult.startPageNum}" end="${pageResult.endPageNum }" var="pageNum">
-				<a href="main?page=${pageNum}">${pageNum}</a>
+				<a style="margin-left:7px; color:black;" href="main?page=${pageNum}">${pageNum}</a>
 			</c:forEach>
+			<c:if test="${!(pageResult.endPageNum==pageResult.lastPageNum)}">
+				<a style="margin-left:7px; color:black;" href="main?page=${pageResult.endPageNum+1}">다음</a>
+			</c:if>
+			<c:if test="${!(pageResult.page==pageResult.lastPageNum)}">
+				<a style="margin-left:7px; color:black;" href="main?page=${pageResult.lastPageNum}">끝</a>
+			</c:if>
 		</div>
 		
-		<i class="fas fa-pen-square fa-2x boardWriteBtn" id="boardWriteBtn"></i>
+		<div class="boardWriteBtn" id="boardWriteBtn">글쓰기<i class="fas fa-pen-square fa-2x boardWriteImg" ></i></div>
 		<script>
 			$("#boardWriteBtn").click(function() {
 				alert("글쓰기로이동")

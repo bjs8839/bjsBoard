@@ -3,10 +3,21 @@
 ul.boardList{
 	list-style:none;
 }
-i.boardWriteBtn:hover{
+i.boardWriteImg:hover{
 	cursor: pointer;
 }
-i.boardWriteBtn{
+i.boardWriteImg{
+	font-size: 1.5em;
+	position: absolute;
+}
+div.boardWriteBtn{
 	position: absolute;
 	right:10%;
+	font-weight: 800;
+    font-size: 18px;
+}
+div.pageNumBtn{
+	text-align:center;
+	font-weight:600;
+	font-size:18px;	
 }

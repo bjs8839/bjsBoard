@@ -23,14 +23,15 @@ public class bjsBoardService {
 //		System.out.println("testNum"+testNum);
 		int startPageNum = (ceilNumber*10)-9; // 현재페이지에 따른 시작페이지 표시 번호
 		int endPageNum = (ceilNumber*10); // 현재페이지에 따른 끝페이지 표시번호
-		result.put("startPageNum", startPageNum);
+		result.put("startPageNum", startPageNum);  // 시작하는페이지 번호 put
 		if(endPageNum>pageBtnNum) {
-			result.put("endPageNum", pageBtnNum);
+			result.put("endPageNum", pageBtnNum); // 현재페이지에서의 끝페이지 번호 put
 		}else if(endPageNum<=pageBtnNum){
-			result.put("endPageNum", endPageNum);
+			result.put("endPageNum", endPageNum); // 현재페이지에서의 끝페이지 번호 put
 		}
+		result.put("lastPageNum", pageBtnNum); // 마지막 끝페이지번호 put
 		
-		result.put("page", page);
+		result.put("page", page); // 현재페이지 put
 		return result;
 	}
 	
